@@ -16,6 +16,12 @@ namespace TinyECA
 
         public Entity[] FindEntitiesWithName(string name) => entities.FindAll(entity => entity.Name == name).ToArray();
 
+        public void CallComponentMethod(string methodName, object[] parameters)
+        {
+            foreach (Entity entity in entities)
+                entity.CallComponentMethod(methodName, parameters);
+        }
+        
         public void CallComponentMethod<T>(string methodName, object[] parameters) where T : EntityComponent
         {
             foreach (Entity entity in entities)

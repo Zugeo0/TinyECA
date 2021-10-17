@@ -57,6 +57,15 @@ namespace TinyECA
             CallComponentMethod(component, methodName, parameters);
         }
         
+        public void CallComponentMethod(string methodName, object[] parameters)
+        {
+            foreach (EntityComponent component in components)
+            {
+                MethodInfo info = component.GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+                info?.Invoke(component, parameters);
+            }
+        }
+        
         public void CallComponentMethod(EntityComponent component, string methodName, object[] parameters)
         {
             MethodInfo info = component.GetType().GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
