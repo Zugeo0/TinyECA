@@ -10,7 +10,7 @@ namespace TinyECA
         public string Name => name;
         public EntityScene Scene => scene;
         
-        public Entity(string name, EntityScene scene)
+        internal Entity(string name, EntityScene scene)
         {
             this.scene = scene;
             this.name = name;
