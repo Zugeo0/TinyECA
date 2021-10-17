@@ -27,7 +27,10 @@ namespace TinyECA
             foreach (Entity entity in entities)
                 entity.CallComponentMethod<T>(methodName, parameters);
         }
-        
+
+        public void CallComponentMethod(string methodName) => CallComponentMethod(methodName, new object[] { });
+        public void CallComponentMethod<T>(string methodName) where T : EntityComponent => CallComponentMethod<T>(methodName, new object[] { });
+
         private List<Entity> entities = new List<Entity>();
     }
 }
