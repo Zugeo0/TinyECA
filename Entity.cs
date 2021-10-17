@@ -60,7 +60,7 @@ namespace TinyECA
         public void CallComponentMethod(string methodName, object[] parameters)
         {
             foreach (EntityComponent component in components)
-                CallComponentMethod(methodName, parameters);
+                CallComponentMethod(component, methodName, parameters);
         }
         
         internal void CallComponentMethod(EntityComponent component, string methodName, object[] parameters)
