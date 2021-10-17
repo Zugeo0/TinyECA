@@ -73,6 +73,7 @@ namespace TinyECA
         }
         
         public void CallComponentMethod<T>(string methodName) where T : EntityComponent => CallComponentMethod<T>(methodName, new object[] { });
+        public void CallComponentMethod(string methodName) => CallComponentMethod(methodName, new object[] { });
         public void CallComponentMethod(EntityComponent component, string methodName) => CallComponentMethod(component, methodName, new object[] { });
         
         private List<EntityComponent> components = new List<EntityComponent>();
