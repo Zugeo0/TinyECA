@@ -12,6 +12,8 @@ namespace TinyECA
             return entity;
         }
 
+        public void RemoveEntity(Entity entity) => entities.Remove(entity);
+
         public Entity[] FindEntitiesWithName(string name) => entities.FindAll(entity => entity.Name == name).ToArray();
 
         public void CallComponentMethod<T>(string methodName, object[] parameters) where T : EntityComponent
